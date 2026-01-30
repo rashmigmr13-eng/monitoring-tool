@@ -1,0 +1,95 @@
+Gotcha 😄
+Here’s a **GitHub-ready, clean, step-by-step README** you can **copy-paste directly**.
+It’s written in **professional DevOps style** (perfect for recruiters & interviews).
+
+---
+
+# 📊 Grafana OSS Installation on Ubuntu (Official Method)
+
+This guide explains how to install **Grafana OSS** on an **Ubuntu Server** using the **official APT repository**.
+This is the **recommended, production-safe method**.
+
+---
+
+## 🧩 Prerequisites
+
+* Ubuntu 20.04 / 22.04 / 24.04
+* User with `sudo` privileges
+* Internet access
+
+---
+
+## 🚀 Installation Steps
+
+### Step 1: Update the system
+
+```bash
+sudo apt update
+sudo apt install -y apt-transport-https software-properties-common wget
+```
+
+---
+
+### Step 2: Add Grafana GPG key
+
+```bash
+sudo mkdir -p /etc/apt/keyrings
+wget -q -O - https://apt.grafana.com/gpg.key | sudo tee /etc/apt/keyrings/grafana.asc
+```
+
+---
+
+### Step 3: Add Grafana APT repository
+
+```bash
+echo "deb [signed-by=/etc/apt/keyrings/grafana.asc] https://apt.grafana.com stable main" | sudo tee /etc/apt/sources.list.d/grafana.list
+```
+
+---
+
+### Step 4: Install Grafana OSS
+
+```bash
+sudo apt update
+sudo apt install -y grafana
+```
+
+---
+
+### Step 5: Start and enable Grafana service
+
+```bash
+sudo systemctl daemon-reexec
+sudo systemctl enable grafana-server
+sudo systemctl start grafana-server
+```
+
+---
+
+### Step 6: Verify Grafana service
+
+```bash
+sudo systemctl status grafana-server
+```
+
+Check if Grafana is listening on port **3000**:
+
+```bash
+ss -tulpn | grep 3000
+```
+
+---
+
+## 🌐 Access Grafana UI
+
+Open a browser and navigate to:
+
+```
+http://<SERVER-IP>:3000
+```
+
+### Default credentials
+
+* **Username:** `admin`
+* **Password:** `admin`
+
