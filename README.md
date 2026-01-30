@@ -373,8 +373,8 @@ Add under scrape_configs:
 
 Restart Prometheus: sudo systemctl restart prometheus
 
-
-final go to grafana dashboard add sources in prometheus => import
+1st = in grafana dashboard in connections add data source = <from browser http:localip:9090>
+final go to grafana dashboard add sources in prometheus => import => id 1860
 
 GRAFANA DASHBOARDS
 https://grafana.com/grafana/dashboards/
