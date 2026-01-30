@@ -371,11 +371,92 @@ Add under scrape_configs:
       - targets: ["localhost:9100","localhostofnodeexporterfrombrowser:9100"]
 
 
-Restart Prometheus: sudo systemctl restart prometheus
+📊 Monitoring Setup – Prometheus + Grafana + Node Exporter
 
-1st = in grafana dashboard in connections add data source = <from browser http:localip:9090>
-final go to grafana dashboard add sources in prometheus => import => id 1860
+This project uses Prometheus for metrics collection and Grafana for visualization with the Node Exporter Full dashboard.
 
-GRAFANA DASHBOARDS
+🔁 Restart Prometheus
+
+After updating the Prometheus configuration, restart the service:
+
+sudo systemctl restart prometheus
+
+🔗 Add Prometheus Data Source in Grafana
+
+Open Grafana in browser
+
+http://<GRAFANA-IP>:3000
+
+
+Navigate to:
+
+Connections → Data Sources → Add data source
+
+
+Select Prometheus
+
+Set URL:
+
+http://localhost:9090
+
+
+Click Save & Test
+✅ You should see Data source is working
+
+📈 Import Node Exporter Dashboard
+
+Grafana provides an official Node Exporter dashboard.
+
+Dashboard Details
+
+Name: Node Exporter Full
+
+Dashboard ID: 1860
+
+Source: Grafana Labs
+
+Import Steps
+
+Go to:
+
+Dashboards → Import
+
+
+Paste the dashboard ID:
+
+1860
+
+
+Select Prometheus as the data source
+
+Click Import
+
+🧭 Dashboard Variables
+
+After importing, select the following at the top of the dashboard:
+
+Datasource: Prometheus
+
+Job: node_exporter
+
+Instance: <node-ip>:9100
+
+Metrics will start appearing immediately.
+
+🔗 Useful Links
+
+Grafana Dashboards:
 https://grafana.com/grafana/dashboards/
-COPY ID FROM NODE EXPORTER
+
+Node Exporter Full Dashboard (ID 1860):
+https://grafana.com/grafana/dashboards/1860/
+
+✅ Verification
+
+To confirm Node Exporter metrics are being scraped, open Prometheus UI:
+
+http://<PROMETHEUS-IP>:9090/targets
+
+
+Ensure node_exporter status is UP.
+
