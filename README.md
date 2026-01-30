@@ -92,11 +92,7 @@ http://<SERVER-IP>:3000
 
 PROMETHUS
 
-Nice choice 👍 Prometheus + Grafana is **core DevOps skill**.
 
-Below are **clean, step-by-step commands** to install **Prometheus on Ubuntu Server** (manual binary method – most used in real setups).
-
----
 
 ## ✅ Prometheus Installation on Ubuntu Server
 
