@@ -371,7 +371,8 @@ Add under scrape_configs:
       - targets: ["localhost:9100","localhostofnodeexporterfrombrowser:9100"]
 
 
-Restart Prometheus:
+Restart Prometheus: sudo systemctl restart prometheus
+
 
 final go to grafana dashboard add sources in prometheus => import
 
